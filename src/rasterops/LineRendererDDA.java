@@ -5,7 +5,6 @@ import io.vavr.collection.Stream;
 import org.jetbrains.annotations.NotNull;
 
 
-
 public class LineRendererDDA<LinePixelType> implements LineRenderer<LinePixelType> {
     @Override
     public @NotNull Image<LinePixelType> render(@NotNull Image<LinePixelType> image, double x1, double y1, double x2, double y2, @NotNull LinePixelType value) {
@@ -28,9 +27,10 @@ public class LineRendererDDA<LinePixelType> implements LineRenderer<LinePixelTyp
         final double xc = (dx / steps);
         final double yc = (dy / steps);
 
-        return Stream.rangeClosed(0, (int) steps).foldLeft(image, (currentImage, i) -> currentImage.withValue(
-                (int) (x1 + i * xc), (int) (y1 + i * yc), value)
-        );
+        return Stream.rangeClosed(0, (int) steps)
+                     .foldLeft(image, (currentImage, i) -> currentImage.withValue(
+                             (int) (x1 + i * xc), (int) (y1 + i * yc), value)
+                     );
 
     }
 }
