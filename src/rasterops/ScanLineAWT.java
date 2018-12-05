@@ -40,7 +40,7 @@ public class ScanLineAWT<C, P> implements ScanLine<C, P> {
 
             //Fill all pairs of coordinates inside polygon
             for (int j = 0; j < intersectLines.size(); j += 2) {
-                if (intersectLines.size() % 2 != 1)         
+                if (intersectLines.size() % 2 != 1)
                     image = poly.getLineRenderer()
                                 .renderRaster(image,
                                         intersectLines.get(j).getX() + 1,
